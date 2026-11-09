@@ -1,0 +1,41 @@
+server:
+  port: 8081
+spring:
+  # ===============================
+  # 1. CẤU HÌNH POSTGRESQL
+  # ===============================
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: "m01668516412" # Thay bằng mật khẩu DB của bạn
+    driver-class-name: org.postgresql.Driver
+
+  # ===============================
+  # 2. CẤU HÌNH SPRING DATA JPA
+  # ===============================
+
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults: false
+
+  # ===============================
+  # 3. CẤU HÌNH REDIS
+  # ===============================
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      # password: mat_khau_redis # Bỏ comment nếu Redis có mật khẩu
+  cache:
+    type: redis
+# ===============================
+# 4. CẤU HÌNH LOG
+# ===============================
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
